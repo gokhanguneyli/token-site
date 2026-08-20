@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="tr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PROJECT NAME | Stealth Launch</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Space Grotesk', 'sans-serif'] },
+                    colors: { brand: '#10B981', darkBg: '#0B0F17', cardBg: '#111827' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-darkBg text-white font-sans antialiased selection:bg-brand selection:text-black">
+
+    <!-- Navbar -->
+    <nav class="max-w-6xl mx-auto px-6 py-6 flex justify-between items-center">
+        <div class="text-2xl font-bold tracking-wider text-brand">$TOKEN</div>
+        <div class="flex gap-4">
+            <a href="https://t.me/YOUR_TELEGRAM" target="_blank" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-xl text-sm font-semibold transition">Telegram</a>
+            <a href="https://x.com/YOUR_X_HANDLE" target="_blank" class="px-4 py-2 bg-gray-800 hover:bg-gray-700 rounded-xl text-sm font-semibold transition">X (Twitter)</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="max-w-4xl mx-auto px-6 pt-12 pb-20 text-center">
+        <div class="inline-block px-4 py-1.5 bg-emerald-500/10 border border-emerald-500/20 rounded-full text-brand text-xs font-semibold mb-6">
+            🚀 STEALTH LAUNCHED ON FOUR.MEME
+        </div>
+        <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+            The Next Generation <br><span class="text-brand">Community Meme Token</span>
+        </h1>
+        <p class="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto mb-10">
+            No presale, no team tokens, anti-bot mechanics. Powered by 3% fee structure for sustainable growth.
+        </p>
+
+        <!-- CA Box -->
+        <div class="max-w-xl mx-auto bg-cardBg border border-gray-800 p-3 rounded-2xl flex items-center justify-between mb-8">
+            <span id="caText" class="text-xs md:text-sm text-gray-400 font-mono truncate px-2">
+                0x0000000000000000000000000000000000000000
+            </span>
+            <button onclick="copyCA()" id="copyBtn" class="bg-brand hover:bg-emerald-600 text-black font-bold px-4 py-2 rounded-xl text-xs transition shrink-0">
+                Copy CA
+            </button>
+        </div>
+
+        <!-- Action Buttons -->
+        <div class="flex flex-col sm:flex-row justify-center gap-4">
+            <a href="#" class="px-8 py-4 bg-brand hover:bg-emerald-600 text-black font-bold rounded-2xl transition text-center">Buy on Four.meme</a>
+            <a href="#" class="px-8 py-4 bg-cardBg hover:bg-gray-800 border border-gray-800 font-bold rounded-2xl transition text-center">Live Chart</a>
+        </div>
+    </section>
+
+    <!-- Tokenomics -->
+    <section class="max-w-5xl mx-auto px-6 py-16 border-t border-gray-900">
+        <h2 class="text-3xl font-bold text-center mb-12">Tokenomics</h2>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-cardBg border border-gray-800 p-6 rounded-2xl text-center">
+                <div class="text-gray-400 text-sm mb-2">Buy / Sell Tax</div>
+                <div class="text-4xl font-extrabold text-brand">3%</div>
+                <p class="text-xs text-gray-500 mt-2">100% Allocated for Marketing & Growth</p>
+            </div>
+            <div class="bg-cardBg border border-gray-800 p-6 rounded-2xl text-center">
+                <div class="text-gray-400 text-sm mb-2">Initial Liquidity</div>
+                <div class="text-4xl font-extrabold text-white">100%</div>
+                <p class="text-xs text-gray-500 mt-2">Safe & Fair Launch Architecture</p>
+            </div>
+            <div class="bg-cardBg border border-gray-800 p-6 rounded-2xl text-center">
+                <div class="text-gray-400 text-sm mb-2">Network</div>
+                <div class="text-4xl font-extrabold text-white">BNB Chain</div>
+                <p class="text-xs text-gray-500 mt-2">Fast & Low Gas Fees</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="text-center py-8 text-gray-600 text-xs border-t border-gray-900">
+        &copy; 2026 Community Token. All rights reserved.
+    </footer>
+
+    <!-- Copy Script -->
+    <script>
+        function copyCA() {
+            const ca = document.getElementById('caText').innerText.trim();
+            navigator.clipboard.writeText(ca);
+            const btn = document.getElementById('copyBtn');
+            btn.innerText = 'Copied!';
+            btn.classList.add('bg-white');
+            setTimeout(() => {
+                btn.innerText = 'Copy CA';
+                btn.classList.remove('bg-white');
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
