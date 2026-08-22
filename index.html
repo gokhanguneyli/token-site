@@ -1,1 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>$CPZ - King of the BNB Jungle</title>
+  
+  <!-- Fonts & AOS Animation Library -->
+  <link href="https://fonts.googleapis.com/css2?family=Impact&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
+  <style>
+    :root {
+      --bg-dark: #0F241D;
+      --bnb-yellow: #F3BA2F;
+      --neon-green: #00FF66;
+      --card-bg: #16382D;
+      --text-light: #F0F0F0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      font-family: 'Outfit', sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+    }
+
+    /* Header Section */
+    header {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    h1.hero-title {
+      font-family: 'Impact', sans-serif;
+      font-size: 3.5rem;
+      color: var(--bnb-yellow);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-shadow: 0 0 15px rgba(243, 186, 47, 0.4);
+    }
+
+    p.hero-subtitle {
+      font-size: 1.2rem;
+      color: var(--neon-green);
+      font-weight: 700;
+      margin-top: 10px;
+    }
+
+    /* Container & Layout */
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    /* Section Cards */
+    .comic-card {
+      background-color: var(--card-bg);
+      border: 3px solid var(--bnb-yellow);
+      border-radius: 16px;
+      padding: 25px;
+      margin-bottom: 40px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    .glow-title {
+      font-family: 'Impact', sans-serif;
+      font-size: 2rem;
+      color: var(--bnb-yellow);
+      text-align: center;
+      margin-bottom: 20px;
+      letter-spacing: 1px;
+    }
+
+    /* Comic Image Container */
+    .comic-img-wrapper {
+      width: 100%;
+      text-align: center;
+      overflow: hidden;
+      border-radius: 12px;
+    }
+
+    .comic-img-wrapper img {
+      width: 100%;
+      height: auto;
+      border-radius: 12px;
+      border: 2px solid var(--neon-green);
+    }
+
+    /* Tokenomics Grid */
+    .tokenomics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .token-box {
+      background: rgba(0,0,0,0.2);
+      padding: 15px;
+      border-radius: 10px;
+      border-left: 4px solid var(--neon-green);
+    }
+
+    .token-box h3 {
+      color: var(--neon-green);
+      font-size: 1rem;
+      margin-bottom: 5px;
+    }
+
+    .token-box p {
+      font-family: 'Impact', sans-serif;
+      font-size: 1.6rem;
+      color: var(--bnb-yellow);
+    }
+
+    /* Buttons & Socials */
+    .social-section {
+      text-align: center;
+      margin: 40px 0;
+    }
+
+    .btn-action {
+      display: inline-block;
+      background-color: var(--bnb-yellow);
+      color: #000;
+      font-family: 'Impact', sans-serif;
+      font-size: 1.3rem;
+      padding: 12px 30px;
+      margin: 10px;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(243, 186, 47, 0.3);
+    }
+
+    .btn-action:hover {
+      transform: translateY(-3px);
+      background-color: var(--neon-green);
+      box-shadow: 0 6px 20px rgba(0, 255, 102, 0.4);
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 50px;
+      font-size: 0.9rem;
+      color: #888;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    
+    <!-- Hero Header -->
+    <header data-aos="zoom-in">
+      <h1 class="hero-title">$CPZ TOKEN</h1>
+      <p class="hero-subtitle">THE REAL KING OF THE BNB JUNGLE</p>
+    </header>
+
+    <!-- Comic Narrative Section -->
+    <div class="comic-card" data-aos="fade-up">
+      <h2 class="glow-title">THE JUNGLE STORY</h2>
+      <div class="comic-img-wrapper">
+        <!-- Görsel ismini buraya ekleyeceksin -->
+        <img src="comic-panel.png" alt="$CPZ Jungle Comic Narrative" />
+      </div>
+    </div>
+
+    <!-- Tokenomics Section -->
+    <div class="comic-card" data-aos="fade-up">
+      <h2 class="glow-title">TOKENOMICS</h2>
+      <div class="tokenomics-grid">
+        <div class="token-box">
+          <h3>TOTAL SUPPLY</h3>
+          <p>1,000,000,000</p>
+        </div>
+        <div class="token-box">
+          <h3>BUY / SELL TAX</h3>
+          <p>0% / 0%</p>
+        </div>
+        <div class="token-box">
+          <h3>LIQUIDITY</h3>
+          <p>BURNT 🔥</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Socials & Buy Section -->
+    <div class="social-section" data-aos="flip-up">
+      <a href="https://four.meme" target="_blank" class="btn-action">BUY ON FOUR.MEME</a>
+      <a href="https://t.me/" target="_blank" class="btn-action">TELEGRAM</a>
+      <a href="https://x.com/" target="_blank" class="btn-action">TWITTER / X</a>
+    </div>
+
+    <footer>
+      <p>© 2026 $CPZ Project. All rights reserved.</p>
+    </footer>
+
+  </div>
+
+  <!-- AOS Script -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+</body>
+</html>
