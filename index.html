@@ -123,34 +123,6 @@
       box-shadow: 0 0 50px rgba(240, 185, 11, 0.9);
     }
 
-    /* BACKGROUND VIDEO FOR MAIN SITE */
-    .bg-video-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      z-index: -2;
-      overflow: hidden;
-    }
-
-    .bg-video-container video {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      opacity: 0.85;
-    }
-
-    .bg-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.3);
-      z-index: -1;
-    }
-
     /* HEADER */
     header {
       display: flex;
@@ -383,7 +355,7 @@
 </head>
 <body>
 
-  <!-- 1. FULLSCREEN INTRO OVERLAY WITH LOGO2.PNG -->
+  <!-- 1. FULLSCREEN INTRO OVERLAY WITH VIDEO -->
   <div id="intro-screen">
     <video id="intro-video" autoplay loop muted playsinline preload="auto">
       <source src="bg-video.mp4" type="video/mp4">
@@ -395,14 +367,6 @@
       <button class="intro-btn" onclick="enterSite()">ENTER WEBSITE</button>
     </div>
   </div>
-
-  <!-- MAIN SITE BACKGROUND VIDEO -->
-  <div class="bg-video-container">
-    <video autoplay loop muted playsinline preload="auto">
-      <source src="bg-video.mp4" type="video/mp4">
-    </video>
-  </div>
-  <div class="bg-overlay"></div>
 
   <!-- HEADER -->
   <header>
@@ -463,6 +427,14 @@
   <script>
     function enterSite() {
       const intro = document.getElementById('intro-screen');
+      const introVideo = document.getElementById('intro-video');
+      
+      // Giriş yapıldığında videoyu durdur
+      if (introVideo) {
+        introVideo.pause();
+      }
+      
+      // Açılış perdesini kaybet
       intro.classList.add('hidden');
     }
 
