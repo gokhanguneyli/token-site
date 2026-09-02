@@ -38,28 +38,30 @@
       font-family: 'Space Grotesk', sans-serif;
     }
 
-    /* INTRO OVERLAY */
+    /* INTRO SCREEN */
     #intro-screen {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      z-index: 9999;
-      background-color: #000;
+      z-index: 99999;
+      background: radial-gradient(circle at center, #1a1e24 0%, #000000 100%);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      transition: opacity 0.8s ease, visibility 0.8s ease;
+      transition: opacity 0.6s ease, visibility 0.6s ease;
+      overflow: hidden; /* Taşmaları gizler */
     }
 
     #intro-screen.hidden {
-      opacity: 0;
-      visibility: hidden;
-      pointer-events: none;
+      opacity: 0 !important;
+      visibility: hidden !important;
+      pointer-events: none !important;
     }
 
+    /* VIDEO WATERMARK CROP: Videoyu %8 büyütüp köşedeki 'Hollow AI' yazısını kadraj dışına iter */
     #intro-video {
       position: absolute;
       top: 0;
@@ -68,8 +70,9 @@
       height: 100%;
       object-fit: cover;
       z-index: 1;
-      filter: brightness(1.2) contrast(1.3) blur(2px);
-      transform: scale(1.05);
+      filter: brightness(1.1) contrast(1.2) blur(2px);
+      transform: scale(1.08); /* Filigranı ekran dışına taşıran zoom efekti */
+      transform-origin: center center;
     }
 
     .intro-video-overlay {
@@ -79,14 +82,14 @@
       width: 100%;
       height: 100%;
       z-index: 2;
-      background: radial-gradient(circle at center, transparent 20%, rgba(0, 0, 0, 0.85) 80%);
+      background: radial-gradient(circle at center, rgba(0,0,0,0.4) 20%, rgba(0, 0, 0, 0.9) 85%);
     }
 
     .intro-content {
       position: relative;
-      z-index: 3;
+      z-index: 10;
       text-align: center;
-      background: rgba(11, 14, 17, 0.75);
+      background: rgba(11, 14, 17, 0.85);
       padding: 30px 40px;
       border-radius: 24px;
       backdrop-filter: blur(12px);
@@ -99,7 +102,7 @@
     }
 
     .intro-mascot {
-      width: 180px;
+      width: 160px;
       height: auto;
       margin-bottom: 15px;
       filter: drop-shadow(0 0 20px rgba(240, 185, 11, 0.8));
@@ -187,7 +190,7 @@
       box-shadow: 0 4px 20px rgba(240, 185, 11, 0.5);
     }
 
-    /* HERO SECTION */
+    /* HERO SECTION & ROTATING LIGHT BORDER */
     .hero {
       text-align: center;
       padding: 100px 20px 60px;
@@ -195,6 +198,7 @@
       margin: 0 auto;
     }
 
+    /* DIŞ HALKA SAAT YÖNÜNDE DÖNER */
     .hero-logo-wrapper {
       position: relative;
       display: inline-block;
@@ -202,26 +206,21 @@
       padding: 6px;
       border-radius: 50%;
       background: conic-gradient(from 0deg, #F0B90B, transparent 60%, #F0B90B);
-      animation: rotateGlow 4s linear infinite;
+      animation: rotateGlow 3s linear infinite;
       box-shadow: 0 0 40px rgba(240, 185, 11, 0.6);
     }
 
     @keyframes rotateGlow {
       0% { transform: rotate(0deg); }
-      100% { transform: rotate(-360deg); }
+      100% { transform: rotate(360deg); }
     }
 
+    /* İÇ KISIM VE LOGO SABİT KALIR */
     .hero-logo-inner {
       border-radius: 50%;
       overflow: hidden;
       background: #000;
       display: block;
-      animation: counterRotate 4s linear infinite;
-    }
-
-    @keyframes counterRotate {
-      0% { transform: rotate(0deg); }
-      100% { transform: rotate(-360deg); }
     }
 
     .hero-logo {
@@ -372,7 +371,7 @@
     </video>
     <div class="intro-video-overlay"></div>
     <div class="intro-content">
-      <img src="logo2.png" alt="$CPZ Mascot" class="intro-mascot">
+      <img src="logo2.png" alt="$CPZ Mascot" class="intro-mascot" onerror="this.style.display='none'">
       <h1 style="font-size: 36px; margin-bottom: 6px; color: #FFF;">WELCOME TO <span style="color: #F0B90B;">$CPZ</span></h1>
       <p style="color: #E2E8F0; font-size: 18px; font-weight: 700; margin-bottom: 15px; text-transform: uppercase; letter-spacing: 1px;">The Best Meme Coin on Earth</p>
       <button class="intro-btn" onclick="enterSite()">ENTER WEBSITE</button>
@@ -381,7 +380,7 @@
 
   <header>
     <a href="#" class="brand">
-      <img src="logo.png" alt="$CPZ Logo">
+      <img src="logo.png" alt="$CPZ Logo" onerror="this.style.display='none'">
       <span>$CPZ</span>
     </a>
     <a href="#" class="btn">Buy on PancakeSwap</a>
@@ -390,7 +389,7 @@
   <section class="hero">
     <div class="hero-logo-wrapper">
       <div class="hero-logo-inner">
-        <img src="logo.png" alt="ChangpengZee Mascot" class="hero-logo">
+        <img src="logo.png" alt="ChangpengZee Mascot" class="hero-logo" onerror="this.style.display='none'">
       </div>
     </div>
     <h1>Meet <span>ChangpengZee</span></h1>
@@ -432,18 +431,22 @@
 
   <script>
     function enterSite() {
-      const intro = document.getElementById('intro-screen');
-      const introVideo = document.getElementById('intro-video');
+      var intro = document.getElementById('intro-screen');
+      var introVideo = document.getElementById('intro-video');
       
       if (introVideo) {
-        introVideo.pause();
+        try {
+          introVideo.pause();
+        } catch(e){}
       }
       
-      intro.classList.add('hidden');
+      if (intro) {
+        intro.classList.add('hidden');
+      }
     }
 
     function copyContract() {
-      const address = document.getElementById('contract').innerText;
+      var address = document.getElementById('contract').innerText;
       navigator.clipboard.writeText(address);
       alert('Contract address copied to clipboard!');
     }
