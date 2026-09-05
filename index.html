@@ -148,6 +148,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
+      gap: 12px;
     }
 
     .brand {
@@ -166,6 +167,14 @@
       border-radius: 50%;
       object-fit: cover;
       border: 2px solid var(--accent-bnb);
+    }
+
+    .header-actions {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
     }
 
     .btn {
@@ -187,6 +196,124 @@
       background-color: var(--accent-hover);
       transform: translateY(-2px);
       box-shadow: 0 4px 20px rgba(240, 185, 11, 0.5);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent-bnb);
+      border: 1.5px solid var(--accent-bnb);
+    }
+
+    .btn-outline:hover {
+      background: rgba(240, 185, 11, 0.1);
+      color: var(--accent-hover);
+      border-color: var(--accent-hover);
+      box-shadow: none;
+    }
+
+    .btn-outline.connected {
+      background: rgba(240, 185, 11, 0.15);
+      color: #fff;
+      border-color: var(--accent-bnb);
+    }
+
+    .btn:disabled {
+      opacity: 0.6;
+      cursor: not-allowed;
+      transform: none !important;
+      box-shadow: none !important;
+    }
+
+    /* WALLET MODAL */
+    .wallet-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.7);
+      backdrop-filter: blur(4px);
+      z-index: 10000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .wallet-modal-overlay.open {
+      display: flex;
+    }
+
+    .wallet-modal {
+      background: #12141a;
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      padding: 28px;
+      max-width: 380px;
+      width: 100%;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.8);
+    }
+
+    .wallet-modal h3 {
+      color: var(--accent-bnb);
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+
+    .wallet-modal p.sub {
+      color: var(--text-muted);
+      font-size: 13px;
+      margin-bottom: 20px;
+    }
+
+    .wallet-option {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      width: 100%;
+      background: rgba(240, 185, 11, 0.06);
+      border: 1px solid var(--card-border);
+      border-radius: 12px;
+      padding: 14px 16px;
+      margin-bottom: 10px;
+      cursor: pointer;
+      color: #fff;
+      font-weight: 700;
+      font-size: 15px;
+      transition: all 0.2s ease;
+      text-align: left;
+    }
+
+    .wallet-option:hover {
+      border-color: var(--accent-bnb);
+      background: rgba(240, 185, 11, 0.14);
+    }
+
+    .wallet-option .emoji {
+      font-size: 22px;
+    }
+
+    .wallet-option .desc {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .wallet-modal-close {
+      display: block;
+      margin: 14px auto 0;
+      background: none;
+      border: none;
+      color: var(--text-muted);
+      cursor: pointer;
+      font-size: 13px;
+      text-decoration: underline;
+    }
+
+    .wallet-status-note {
+      font-size: 12px;
+      color: #848e9c;
+      margin-top: 14px;
+      line-height: 1.5;
     }
 
     /* HERO SECTION & PULSING LIGHT BORDER */
@@ -251,6 +378,14 @@
       margin: 0 auto 36px;
       text-shadow: 0 2px 12px rgba(0,0,0,0.9);
       font-weight: 600;
+    }
+
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 40px;
     }
 
     /* CONTRACT BOX */
@@ -447,6 +582,75 @@
       font-size: 15px;
     }
 
+    /* BUY / SWAP WIDGET (placeholder infra for future swap) */
+    .swap-box {
+      background: var(--card-bg);
+      backdrop-filter: blur(12px);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 36px;
+      max-width: 460px;
+      margin: 0 auto;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+      text-align: center;
+    }
+
+    .swap-box h3 {
+      color: var(--accent-bnb);
+      font-size: 26px;
+      margin-bottom: 8px;
+    }
+
+    .swap-box p.sub {
+      color: var(--text-muted);
+      font-size: 14px;
+      margin-bottom: 24px;
+    }
+
+    .swap-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(240, 185, 11, 0.08);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      padding: 14px 18px;
+      margin-bottom: 14px;
+      font-weight: 700;
+    }
+
+    .swap-row input {
+      background: none;
+      border: none;
+      color: #fff;
+      font-size: 18px;
+      font-weight: 700;
+      width: 60%;
+      outline: none;
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .swap-row .token-tag {
+      background: var(--accent-bnb);
+      color: #000;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-size: 13px;
+    }
+
+    .swap-arrow {
+      font-size: 20px;
+      color: var(--accent-bnb);
+      margin: -4px 0;
+    }
+
+    .btn-full {
+      width: 100%;
+      margin-top: 10px;
+      padding: 16px;
+      font-size: 16px;
+    }
+
     /* FOOTER */
     footer {
       text-align: center;
@@ -489,6 +693,8 @@
       .contract-box { flex-direction: column; text-align: center; }
       .contract-details { text-align: center; }
       .manifesto-box { padding: 24px; }
+      header { flex-direction: column; gap: 12px; }
+      .header-actions { width: 100%; justify-content: center; }
     }
   </style>
 </head>
@@ -508,13 +714,52 @@
     </div>
   </div>
 
+  <!-- WALLET MODAL -->
+  <div class="wallet-modal-overlay" id="wallet-modal-overlay">
+    <div class="wallet-modal">
+      <h3>Connect Wallet</h3>
+      <p class="sub">Choose how you'd like to connect. Wallet connection is the first step towards buying $CPZEE directly on-site.</p>
+
+      <button class="wallet-option" onclick="connectInjected('MetaMask')">
+        <span class="emoji">🦊</span>
+        <span>
+          MetaMask
+          <span class="desc">Browser extension wallet</span>
+        </span>
+      </button>
+
+      <button class="wallet-option" onclick="connectInjected('Trust Wallet / Binance Wallet / OKX')">
+        <span class="emoji">🔐</span>
+        <span>
+          Other Injected Wallet
+          <span class="desc">Trust Wallet, Binance Wallet, OKX, Coinbase</span>
+        </span>
+      </button>
+
+      <button class="wallet-option" onclick="connectWalletConnect()">
+        <span class="emoji">📱</span>
+        <span>
+          WalletConnect
+          <span class="desc">Scan QR with any mobile wallet</span>
+        </span>
+      </button>
+
+      <button class="wallet-modal-close" onclick="closeWalletModal()">Cancel</button>
+
+      <p class="wallet-status-note" id="wallet-status-note">Connecting will prompt your wallet to switch to BNB Smart Chain.</p>
+    </div>
+  </div>
+
   <!-- HEADER -->
   <header>
     <a href="#" class="brand">
       <img src="logo.png" alt="$CPZEE Logo" onerror="this.style.display='none'">
       <span>$CPZEE</span>
     </a>
-    <a href="https://four.meme" target="_blank" class="btn">Buy on Four.meme</a>
+    <div class="header-actions">
+      <button class="btn btn-outline" id="connect-wallet-btn" onclick="openWalletModal()">Connect Wallet</button>
+      <a href="https://four.meme" target="_blank" class="btn">Buy on Four.meme</a>
+    </div>
   </header>
 
   <!-- HERO SECTION -->
@@ -581,6 +826,27 @@
     </div>
   </section>
 
+  <!-- BUY / SWAP (front-end scaffold, wired up once contract + router are ready) -->
+  <section class="section-container">
+    <h2 class="section-title">Buy <span>$CPZEE</span></h2>
+    <div class="swap-box">
+      <h3>Swap</h3>
+      <p class="sub">Connect your wallet to buy $CPZEE directly. This panel is display-only until the router contract is connected.</p>
+
+      <div class="swap-row">
+        <input type="text" placeholder="0.0" id="swap-from-amount" disabled>
+        <span class="token-tag">BNB</span>
+      </div>
+      <div class="swap-arrow">↓</div>
+      <div class="swap-row">
+        <input type="text" placeholder="0.0" id="swap-to-amount" disabled readonly>
+        <span class="token-tag">CPZEE</span>
+      </div>
+
+      <button class="btn btn-full" id="swap-action-btn" onclick="handleSwapClick()">Connect Wallet to Buy</button>
+    </div>
+  </section>
+
   <!-- FEATURES -->
   <section class="section-container">
     <h2 class="section-title">Why <span>$CPZEE</span>?</h2>
@@ -623,37 +889,259 @@
     <p>&copy; 2026 ChangpengZee ($CPZEE). All rights reserved.</p>
   </footer>
 
-  <!-- SCRIPT: AUTO ENTER AFTER VIDEO ENDS -->
+  <!-- ethers.js for wallet + future contract interaction -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.umd.min.js"></script>
+
   <script>
+    /* ---------- INTRO VIDEO ---------- */
     function enterSite() {
       var intro = document.getElementById('intro-screen');
       var introVideo = document.getElementById('intro-video');
-      
-      if (introVideo) {
-        try {
-          introVideo.pause();
-        } catch(e){}
-      }
-      
-      if (intro) {
-        intro.classList.add('hidden');
-      }
+      if (introVideo) { try { introVideo.pause(); } catch(e){} }
+      if (intro) { intro.classList.add('hidden'); }
     }
 
     document.addEventListener("DOMContentLoaded", function() {
       var introVideo = document.getElementById('intro-video');
       if (introVideo) {
         introVideo.removeAttribute('loop');
-        introVideo.addEventListener('ended', function() {
-          enterSite();
-        });
+        introVideo.addEventListener('ended', function() { enterSite(); });
       }
+      setupBuyPanelForLaunchStage();
     });
+
+    // Before migration: point people at four.meme (that's where the bonding-curve
+    // trading actually happens). After migration: switch to the in-site swap panel.
+    function setupBuyPanelForLaunchStage() {
+      const swapBtn = document.getElementById('swap-action-btn');
+      const fromInput = document.getElementById('swap-from-amount');
+      const toInput = document.getElementById('swap-to-amount');
+      const subText = document.querySelector('.swap-box p.sub');
+
+      if (!TOKEN_CONFIG.migrated) {
+        subText.textContent = "$CPZEE is currently trading on Four.meme's bonding curve. Buying happens there until the token migrates to PancakeSwap.";
+        fromInput.disabled = true;
+        toInput.disabled = true;
+        swapBtn.textContent = 'Buy on Four.meme';
+        swapBtn.onclick = function() { window.open(TOKEN_CONFIG.fourMemeUrl, '_blank'); };
+      } else {
+        subText.textContent = 'Connect your wallet to buy $CPZEE directly via PancakeSwap.';
+        swapBtn.onclick = handleSwapClick;
+        if (currentAddress) {
+          swapBtn.textContent = 'Buy $CPZEE';
+          fromInput.disabled = false;
+        }
+      }
+    }
 
     function copyContract() {
       var address = document.getElementById('contract').innerText;
       navigator.clipboard.writeText(address);
       alert('Contract address copied to clipboard!');
+    }
+
+    /* ---------- TOKEN / LAUNCH CONFIG ---------- */
+    // Fill these in once you launch on four.meme. Everything below reacts to this.
+    const TOKEN_CONFIG = {
+      contractAddress: '0x0000000000000000000000000000000000000000', // set after launch
+      fourMemeUrl: 'https://four.meme', // set to your exact token page once live
+      // false = still on the four.meme bonding curve -> Buy button sends people to four.meme
+      // true  = migrated to PancakeSwap -> in-site swap panel goes live
+      migrated: false
+    };
+
+    // PancakeSwap V2 Router on BSC mainnet (verified against multiple independent sources).
+    const PANCAKE_ROUTER_ADDRESS = '0x10ED43C718714eb63d5aA57B78B54704E256024E';
+    const PANCAKE_ROUTER_ABI = [
+      'function WETH() external pure returns (address)',
+      'function swapExactETHForTokens(uint amountOutMin, address[] calldata path, address to, uint deadline) external payable returns (uint[] memory amounts)',
+      'function getAmountsOut(uint amountIn, address[] calldata path) external view returns (uint[] memory amounts)'
+    ];
+
+    /* ---------- WALLET CONNECTION ---------- */
+    // BNB Smart Chain mainnet config, used to prompt a network switch/add.
+    const BSC_CHAIN = {
+      chainId: '0x38', // 56
+      chainName: 'BNB Smart Chain',
+      nativeCurrency: { name: 'BNB', symbol: 'BNB', decimals: 18 },
+      rpcUrls: ['https://bsc-dataseed.binance.org/'],
+      blockExplorerUrls: ['https://bscscan.com']
+    };
+
+    // TODO: replace with your own WalletConnect Cloud project ID (free, from https://cloud.walletconnect.com)
+    // to enable the QR-code / mobile-wallet option. Left blank for now so the button
+    // explains what's missing instead of failing silently.
+    const WALLETCONNECT_PROJECT_ID = '';
+
+    let currentProvider = null; // ethers BrowserProvider
+    let currentSigner = null;
+    let currentAddress = null;
+
+    function openWalletModal() {
+      if (currentAddress) {
+        // Already connected -> quick disconnect option via confirm
+        if (confirm('Connected as ' + shortenAddress(currentAddress) + '.\nDisconnect?')) {
+          disconnectWallet();
+        }
+        return;
+      }
+      document.getElementById('wallet-modal-overlay').classList.add('open');
+    }
+
+    function closeWalletModal() {
+      document.getElementById('wallet-modal-overlay').classList.remove('open');
+    }
+
+    function shortenAddress(addr) {
+      return addr.slice(0, 6) + '...' + addr.slice(-4);
+    }
+
+    async function connectInjected(labelForErrors) {
+      if (typeof window.ethereum === 'undefined') {
+        alert('No injected wallet found. Please install ' + labelForErrors + ' or open this site from inside your wallet\'s browser.');
+        return;
+      }
+      try {
+        currentProvider = new ethers.BrowserProvider(window.ethereum);
+        const accounts = await currentProvider.send('eth_requestAccounts', []);
+        currentSigner = await currentProvider.getSigner();
+        currentAddress = accounts[0];
+
+        await ensureBscNetwork();
+        onWalletConnected();
+      } catch (err) {
+        console.error(err);
+        alert('Wallet connection was cancelled or failed.');
+      }
+    }
+
+    async function ensureBscNetwork() {
+      if (!window.ethereum) return;
+      try {
+        await window.ethereum.request({
+          method: 'wallet_switchEthereumChain',
+          params: [{ chainId: BSC_CHAIN.chainId }]
+        });
+      } catch (switchError) {
+        // Chain not added yet -> add it
+        if (switchError.code === 4902) {
+          try {
+            await window.ethereum.request({
+              method: 'wallet_addEthereumChain',
+              params: [BSC_CHAIN]
+            });
+          } catch (addError) {
+            console.error('Could not add BSC network', addError);
+          }
+        } else {
+          console.error('Could not switch network', switchError);
+        }
+      }
+    }
+
+    function connectWalletConnect() {
+      if (!WALLETCONNECT_PROJECT_ID) {
+        alert(
+          'WalletConnect isn\'t wired up yet.\n\n' +
+          'To enable it: get a free Project ID at cloud.walletconnect.com, ' +
+          'add the @walletconnect/ethereum-provider script, and paste the ID into ' +
+          'WALLETCONNECT_PROJECT_ID in the code.'
+        );
+        return;
+      }
+      // Placeholder for future @walletconnect/ethereum-provider integration.
+    }
+
+    function onWalletConnected() {
+      closeWalletModal();
+      const btn = document.getElementById('connect-wallet-btn');
+      btn.textContent = shortenAddress(currentAddress);
+      btn.classList.add('connected');
+
+      if (TOKEN_CONFIG.migrated) {
+        const swapBtn = document.getElementById('swap-action-btn');
+        swapBtn.textContent = 'Buy $CPZEE';
+        document.getElementById('swap-from-amount').disabled = false;
+      }
+
+      // Listen for account/network changes
+      if (window.ethereum) {
+        window.ethereum.on && window.ethereum.on('accountsChanged', (accs) => {
+          if (accs.length === 0) {
+            disconnectWallet();
+          } else {
+            currentAddress = accs[0];
+            document.getElementById('connect-wallet-btn').textContent = shortenAddress(currentAddress);
+          }
+        });
+        window.ethereum.on && window.ethereum.on('chainChanged', () => {
+          window.location.reload();
+        });
+      }
+    }
+
+    function disconnectWallet() {
+      currentProvider = null;
+      currentSigner = null;
+      currentAddress = null;
+      const btn = document.getElementById('connect-wallet-btn');
+      btn.textContent = 'Connect Wallet';
+      btn.classList.remove('connected');
+
+      const swapBtn = document.getElementById('swap-action-btn');
+      swapBtn.textContent = 'Connect Wallet to Buy';
+      document.getElementById('swap-from-amount').disabled = true;
+    }
+
+    /* ---------- BUY / SWAP (live once TOKEN_CONFIG.migrated = true) ---------- */
+    async function handleSwapClick() {
+      if (!TOKEN_CONFIG.migrated) {
+        window.open(TOKEN_CONFIG.fourMemeUrl, '_blank');
+        return;
+      }
+      if (!currentAddress || !currentSigner) {
+        openWalletModal();
+        return;
+      }
+      if (TOKEN_CONFIG.contractAddress === '0x0000000000000000000000000000000000000000') {
+        alert('Set TOKEN_CONFIG.contractAddress to the real $CPZEE contract address first.');
+        return;
+      }
+
+      const bnbAmountStr = document.getElementById('swap-from-amount').value;
+      const bnbAmount = parseFloat(bnbAmountStr);
+      if (!bnbAmount || bnbAmount <= 0) {
+        alert('Enter a BNB amount to swap.');
+        return;
+      }
+
+      try {
+        const router = new ethers.Contract(PANCAKE_ROUTER_ADDRESS, PANCAKE_ROUTER_ABI, currentSigner);
+        const wbnbAddress = await router.WETH(); // fetched live from the router, never hardcoded
+        const path = [wbnbAddress, TOKEN_CONFIG.contractAddress];
+        const amountIn = ethers.parseEther(bnbAmountStr);
+
+        // Quote expected output, then apply 5% slippage tolerance as a floor.
+        const amountsOut = await router.getAmountsOut(amountIn, path);
+        const amountOutMin = (amountsOut[1] * 95n) / 100n;
+
+        const deadline = Math.floor(Date.now() / 1000) + 60 * 10; // 10 minutes
+
+        const tx = await router.swapExactETHForTokens(
+          amountOutMin,
+          path,
+          currentAddress,
+          deadline,
+          { value: amountIn }
+        );
+
+        alert('Transaction submitted: ' + tx.hash + '\nWaiting for confirmation...');
+        await tx.wait();
+        alert('Swap confirmed! $CPZEE should now be in your wallet.');
+      } catch (err) {
+        console.error(err);
+        alert('Swap failed or was rejected: ' + (err.shortMessage || err.message || 'unknown error'));
+      }
     }
   </script>
 </body>
