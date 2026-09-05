@@ -940,6 +940,236 @@
       flex-wrap: wrap;
     }
 
+    /* INTRO LOADING SPINNER (shown until the video is ready to play) */
+    .intro-loader {
+      position: absolute;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      color: #fff;
+      transition: opacity 0.4s ease;
+    }
+
+    .intro-loader.hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .spinner {
+      width: 42px;
+      height: 42px;
+      border: 4px solid rgba(240, 185, 11, 0.2);
+      border-top-color: var(--accent-bnb);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    .intro-loader p {
+      font-size: 13px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--text-muted);
+      font-weight: 700;
+    }
+
+    #intro-video, .intro-video-overlay, .intro-content {
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    #intro-video.ready, .intro-video-overlay.ready, .intro-content.ready {
+      opacity: 1;
+    }
+
+    /* NAV LINKS (desktop) */
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+      margin: 0 10px;
+    }
+
+    .nav-links a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-size: 14px;
+      font-weight: 700;
+      transition: color 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .nav-links a:hover {
+      color: var(--accent-bnb);
+    }
+
+    .hamburger-btn {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 6px;
+    }
+
+    .hamburger-btn span {
+      width: 24px;
+      height: 2px;
+      background: var(--accent-bnb);
+      display: block;
+      border-radius: 2px;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: rgba(11, 14, 17, 0.98);
+      border-bottom: 1px solid var(--card-border);
+      padding: 10px 8% 20px;
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      color: var(--text-muted);
+      text-decoration: none;
+      font-weight: 700;
+      padding: 12px 0;
+      border-bottom: 1px solid rgba(240, 185, 11, 0.08);
+    }
+
+    .mobile-nav a:hover {
+      color: var(--accent-bnb);
+    }
+
+    /* FAQ ACCORDION */
+    .faq-list {
+      max-width: 760px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .faq-item {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .faq-question {
+      width: 100%;
+      background: none;
+      border: none;
+      color: #fff;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 16px;
+      font-weight: 700;
+      text-align: left;
+      padding: 20px 22px;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .faq-question .faq-plus {
+      font-size: 20px;
+      color: var(--accent-bnb);
+      transition: transform 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .faq-item.open .faq-plus {
+      transform: rotate(45deg);
+    }
+
+    .faq-answer {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease;
+    }
+
+    .faq-answer p {
+      padding: 0 22px 20px;
+      color: var(--text-muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* TOAST NOTIFICATION */
+    .toast {
+      position: fixed;
+      bottom: 28px;
+      left: 50%;
+      transform: translateX(-50%) translateY(20px);
+      background: #12141a;
+      border: 1px solid var(--accent-bnb);
+      color: #fff;
+      padding: 14px 24px;
+      border-radius: 12px;
+      font-weight: 700;
+      font-size: 14px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.6);
+      z-index: 10001;
+      opacity: 0;
+      pointer-events: none;
+      transition: all 0.3s ease;
+    }
+
+    .toast.show {
+      opacity: 1;
+      transform: translateX(-50%) translateY(0);
+    }
+
+    /* SCROLL TO TOP */
+    .scroll-top-btn {
+      position: fixed;
+      bottom: 28px;
+      right: 28px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: var(--accent-bnb);
+      color: #000;
+      border: none;
+      font-size: 20px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.5);
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(10px);
+      transition: all 0.3s ease;
+      z-index: 500;
+    }
+
+    .scroll-top-btn.show {
+      opacity: 1;
+      pointer-events: auto;
+      transform: translateY(0);
+    }
+
+    .scroll-top-btn:hover {
+      background: var(--accent-hover);
+    }
+
     @media (max-width: 868px) {
       .split-layout, .split-layout.reverse { flex-direction: column; text-align: center; }
       .hero h1 { font-size: 38px; }
@@ -951,6 +1181,9 @@
       header { flex-direction: column; gap: 12px; }
       .header-actions { width: 100%; justify-content: center; }
       .roadmap-item { gap: 14px; }
+      .nav-links { display: none; }
+      .hamburger-btn { display: flex; }
+      .scroll-top-btn { right: 16px; bottom: 16px; }
     }
   </style>
 </head>
@@ -958,6 +1191,10 @@
 
   <!-- INTRO SCREEN -->
   <div id="intro-screen">
+    <div class="intro-loader" id="intro-loader">
+      <div class="spinner"></div>
+      <p>Loading $CPZEE...</p>
+    </div>
     <video id="intro-video" autoplay muted playsinline preload="auto">
       <source src="bg-video.mp4" type="video/mp4">
     </video>
@@ -1012,11 +1249,26 @@
       <img src="logo.png" alt="$CPZEE Logo" onerror="this.style.display='none'">
       <span>$CPZEE</span>
     </a>
+    <nav class="nav-links">
+      <a href="#tokenomics">Tokenomics</a>
+      <a href="#roadmap">Roadmap</a>
+      <a href="#faq">FAQ</a>
+      <a href="#community">Community</a>
+    </nav>
     <div class="header-actions">
       <button class="btn btn-outline" id="connect-wallet-btn" onclick="openWalletModal()">Connect Wallet</button>
       <a href="https://four.meme" target="_blank" class="btn">Buy on Four.meme</a>
+      <button class="hamburger-btn" id="hamburger-btn" onclick="toggleMobileNav()" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
     </div>
   </header>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="#tokenomics" onclick="toggleMobileNav()">Tokenomics</a>
+    <a href="#roadmap" onclick="toggleMobileNav()">Roadmap</a>
+    <a href="#faq" onclick="toggleMobileNav()">FAQ</a>
+    <a href="#community" onclick="toggleMobileNav()">Community</a>
+  </nav>
 
   <!-- HERO SECTION -->
   <section class="hero">
@@ -1063,7 +1315,7 @@
   </section>
 
   <!-- TOKENOMICS -->
-  <section class="section-container">
+  <section class="section-container" id="tokenomics">
     <h2 class="section-title"><span>$CPZEE</span> Tokenomics</h2>
     <div class="split-layout reverse">
       <div class="split-image-wrapper">
@@ -1165,7 +1417,7 @@
   </section>
 
   <!-- ROADMAP -->
-  <section class="section-container">
+  <section class="section-container" id="roadmap">
     <h2 class="section-title"><span>$CPZEE</span> Roadmap</h2>
     <div class="roadmap-list">
       <div class="roadmap-item">
@@ -1199,8 +1451,50 @@
     </div>
   </section>
 
+  <!-- FAQ -->
+  <section class="section-container" id="faq">
+    <h2 class="section-title">Frequently Asked <span>Questions</span></h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is there a buy or sell tax?
+          <span class="faq-plus">+</span>
+        </button>
+        <div class="faq-answer"><p>No. $CPZEE has a 0% buy and 0% sell tax, confirmed directly in the contract. What you buy is what you keep.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          How do I buy $CPZEE?
+          <span class="faq-plus">+</span>
+        </button>
+        <div class="faq-answer"><p>While the token is on the four.meme bonding curve, use the "Buy on Four.meme" button to purchase there. Once the token migrates and liquidity moves to PancakeSwap, you'll be able to connect your wallet and swap directly on this site.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is the contract verified?
+          <span class="faq-plus">+</span>
+        </button>
+        <div class="faq-answer"><p>Contract verification and liquidity lock proof links are posted in the Trust section above as soon as they're available after launch.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          Is $CPZEE affiliated with Binance or CZ?
+          <span class="faq-plus">+</span>
+        </button>
+        <div class="faq-answer"><p>No. $CPZEE is an independent, community-driven parody/tribute project. It is not affiliated with, endorsed by, or connected to Changpeng Zhao (CZ), Binance, or any related corporate entity.</p></div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-question" onclick="toggleFaq(this)">
+          What wallets can I connect?
+          <span class="faq-plus">+</span>
+        </button>
+        <div class="faq-answer"><p>MetaMask and any other browser-injected wallet (Trust Wallet, Binance Wallet, OKX, Coinbase Wallet). WalletConnect support for mobile QR scanning is coming soon.</p></div>
+      </div>
+    </div>
+  </section>
+
   <!-- COMMUNITY -->
-  <section class="section-container">
+  <section class="section-container" id="community">
     <div class="community-strip">
       <h3>Join the Chimp Army</h3>
       <p>$CPZEE is 100% community-run — no VC allocation, no team tokens, no presale. Come hang out, share memes, and help spread the word.</p>
@@ -1210,6 +1504,12 @@
       </div>
     </div>
   </section>
+
+  <!-- TOAST -->
+  <div class="toast" id="toast"></div>
+
+  <!-- SCROLL TO TOP -->
+  <button class="scroll-top-btn" id="scroll-top-btn" onclick="scrollToTop()" aria-label="Scroll to top">↑</button>
 
   <!-- FOOTER -->
   <footer>
@@ -1235,7 +1535,7 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/ethers/6.13.4/ethers.umd.min.js"></script>
 
   <script>
-    /* ---------- INTRO VIDEO ---------- */
+    /* ---------- INTRO VIDEO + LOADING SPINNER ---------- */
     function enterSite() {
       var intro = document.getElementById('intro-screen');
       var introVideo = document.getElementById('intro-video');
@@ -1245,14 +1545,91 @@
 
     document.addEventListener("DOMContentLoaded", function() {
       var introVideo = document.getElementById('intro-video');
+      var introLoader = document.getElementById('intro-loader');
+      var overlay = document.querySelector('.intro-video-overlay');
+      var content = document.querySelector('.intro-content');
+
+      function revealIntroContent() {
+        introLoader.classList.add('hidden');
+        if (introVideo) introVideo.classList.add('ready');
+        if (overlay) overlay.classList.add('ready');
+        if (content) content.classList.add('ready');
+      }
+
       if (introVideo) {
         introVideo.removeAttribute('loop');
         introVideo.addEventListener('ended', function() { enterSite(); });
+        // Show spinner until the video actually has enough data to play smoothly.
+        if (introVideo.readyState >= 3) {
+          revealIntroContent();
+        } else {
+          introVideo.addEventListener('canplay', revealIntroContent, { once: true });
+          // Safety net: never keep the spinner up for more than 4s even on a slow connection.
+          setTimeout(revealIntroContent, 4000);
+        }
+      } else {
+        revealIntroContent();
       }
+
       setupBuyPanelForLaunchStage();
       setupTrustBadges();
       setupLiveChart();
+      setupScrollTopButton();
     });
+
+    /* ---------- MOBILE NAV ---------- */
+    function toggleMobileNav() {
+      document.getElementById('mobile-nav').classList.toggle('open');
+    }
+
+    /* ---------- FAQ ACCORDION ---------- */
+    function toggleFaq(btn) {
+      const item = btn.closest('.faq-item');
+      const answer = item.querySelector('.faq-answer');
+      const isOpen = item.classList.contains('open');
+
+      // Close any other open FAQ item for a cleaner accordion feel.
+      document.querySelectorAll('.faq-item.open').forEach(function(openItem) {
+        if (openItem !== item) {
+          openItem.classList.remove('open');
+          openItem.querySelector('.faq-answer').style.maxHeight = null;
+        }
+      });
+
+      if (isOpen) {
+        item.classList.remove('open');
+        answer.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+      }
+    }
+
+    /* ---------- TOAST NOTIFICATION ---------- */
+    let toastTimeout;
+    function showToast(message) {
+      const toast = document.getElementById('toast');
+      toast.textContent = message;
+      toast.classList.add('show');
+      clearTimeout(toastTimeout);
+      toastTimeout = setTimeout(function() { toast.classList.remove('show'); }, 2500);
+    }
+
+    /* ---------- SCROLL TO TOP ---------- */
+    function scrollToTop() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function setupScrollTopButton() {
+      const btn = document.getElementById('scroll-top-btn');
+      window.addEventListener('scroll', function() {
+        if (window.scrollY > 500) {
+          btn.classList.add('show');
+        } else {
+          btn.classList.remove('show');
+        }
+      });
+    }
 
     // Trust badges: show "Available after launch" until real links are filled in
     // TOKEN_CONFIG, then flip to a green "Confirmed" state with a working link.
@@ -1317,7 +1694,7 @@
     function copyContract() {
       var address = document.getElementById('contract').innerText;
       navigator.clipboard.writeText(address);
-      alert('Contract address copied to clipboard!');
+      showToast('✅ Contract address copied!');
     }
 
     /* ---------- TOKEN / LAUNCH CONFIG ---------- */
