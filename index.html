@@ -592,10 +592,39 @@
     }
 
     .card-icon img {
-      width: 44px;
-      height: 44px;
+      width: 64px;
+      height: 64px;
       object-fit: contain;
       display: block;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover .card-icon img {
+      transform: scale(1.15) rotate(-6deg);
+    }
+
+    .shield-icon {
+      display: inline-block;
+      animation: shieldPulse 2s ease-in-out infinite;
+    }
+
+    @keyframes shieldPulse {
+      0%, 100% { transform: scale(1); filter: drop-shadow(0 0 6px rgba(46, 204, 113, 0.3)); }
+      50% { transform: scale(1.15); filter: drop-shadow(0 0 18px rgba(46, 204, 113, 0.8)); }
+    }
+    .bnb-diamond {
+      width: 44px;
+      height: 44px;
+      background: var(--accent-bnb);
+      transform: rotate(45deg);
+      border-radius: 6px;
+      animation: bnbPulse 2s ease-in-out infinite;
+      box-shadow: 0 0 20px rgba(240, 185, 11, 0.5);
+    }
+
+    @keyframes bnbPulse {
+      0%, 100% { transform: rotate(45deg) scale(1); box-shadow: 0 0 15px rgba(240, 185, 11, 0.4); }
+      50% { transform: rotate(45deg) scale(1.12); box-shadow: 0 0 30px rgba(240, 185, 11, 0.8); }
     }
 
     .card h3 {
@@ -1116,7 +1145,9 @@
     <h2 class="section-title">Why <span>$CPZEE</span>?</h2>
     <div class="grid">
       <div class="card">
-        <div class="card-icon">⚡</div>
+        <div class="card-icon">
+          <img src="bnb-logo.png" alt="BNB" onerror="this.replaceWith(Object.assign(document.createElement('div'), {className:'bnb-diamond'}))">
+        </div>
         <h3>BNB Smart Chain</h3>
         <p>Ultra-low transaction fees and lightning-fast execution built directly on the BEP-20 network.</p>
       </div>
@@ -1126,7 +1157,7 @@
         <p>Combining the iconic energy of CZ with pure chimp culture for the strongest community in Web3.</p>
       </div>
       <div class="card">
-        <div class="card-icon">🔒</div>
+        <div class="card-icon"><span class="shield-icon">🛡️</span></div>
         <h3>Safe & Transparent</h3>
         <p>100% community-owned project with no hidden taxes and verified contract transparency.</p>
       </div>
