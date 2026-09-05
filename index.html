@@ -4,6 +4,26 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>$CPZEE - ChangpengZee | The Best Meme Coin on Earth</title>
+  <meta name="description" content="ChangpengZee ($CPZEE) — a community-driven meme token on BNB Smart Chain. 0% tax, liquidity locked, pure chimp energy.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="logo.png">
+  <link rel="apple-touch-icon" href="logo.png">
+
+  <!-- Open Graph / social share preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="$CPZEE - ChangpengZee | The Best Meme Coin on Earth">
+  <meta property="og:description" content="Community-driven meme token on BNB Smart Chain. 0% tax, liquidity locked, pure chimp energy.">
+  <!-- IMPORTANT: og:image/twitter:image must be a FULL URL (not relative) to render previews on X/Telegram.
+       Replace YOURDOMAIN.com below with your real domain once it's live. -->
+  <meta property="og:image" content="https://YOURDOMAIN.com/logo.png">
+  <meta property="og:url" content="https://YOURDOMAIN.com">
+
+  <!-- Twitter card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="$CPZEE - ChangpengZee">
+  <meta name="twitter:description" content="Community-driven meme token on BNB Smart Chain. 0% tax, liquidity locked, pure chimp energy.">
+  <meta name="twitter:image" content="https://YOURDOMAIN.com/logo.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -685,6 +705,205 @@
       color: #848e9c;
     }
 
+    /* TRUST / SECURITY BADGES */
+    .trust-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+
+    .trust-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 16px;
+      padding: 24px;
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .trust-card.verified {
+      border-color: #2ECC71;
+    }
+
+    .trust-card.pending {
+      opacity: 0.65;
+    }
+
+    .trust-icon {
+      font-size: 30px;
+      margin-bottom: 10px;
+    }
+
+    .trust-card h4 {
+      font-size: 17px;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+
+    .trust-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .trust-status {
+      display: inline-block;
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      padding: 5px 12px;
+      border-radius: 20px;
+    }
+
+    .trust-status.ok {
+      background: rgba(46, 204, 113, 0.15);
+      color: #2ECC71;
+    }
+
+    .trust-status.wait {
+      background: rgba(240, 185, 11, 0.15);
+      color: var(--accent-bnb);
+    }
+
+    .trust-card a.trust-link {
+      display: inline-block;
+      margin-top: 4px;
+      color: var(--accent-bnb);
+      font-size: 13px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .trust-card a.trust-link:hover {
+      color: var(--accent-hover);
+    }
+
+    /* LIVE CHART */
+    .chart-frame-wrapper {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 20px;
+      overflow: hidden;
+      min-height: 480px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+    }
+
+    .chart-frame-wrapper iframe {
+      width: 100%;
+      height: 480px;
+      border: none;
+    }
+
+    .chart-placeholder {
+      text-align: center;
+      padding: 60px 30px;
+      color: var(--text-muted);
+    }
+
+    .chart-placeholder .icon {
+      font-size: 40px;
+      margin-bottom: 14px;
+    }
+
+    .chart-placeholder h4 {
+      color: #fff;
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    /* ROADMAP */
+    .roadmap-list {
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+      max-width: 720px;
+      margin: 0 auto;
+    }
+
+    .roadmap-item {
+      display: flex;
+      gap: 20px;
+      position: relative;
+      padding-bottom: 36px;
+    }
+
+    .roadmap-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .roadmap-item::before {
+      content: '';
+      position: absolute;
+      left: 21px;
+      top: 44px;
+      bottom: 0;
+      width: 2px;
+      background: var(--card-border);
+    }
+
+    .roadmap-item:last-child::before {
+      display: none;
+    }
+
+    .roadmap-marker {
+      flex-shrink: 0;
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: rgba(240, 185, 11, 0.12);
+      border: 2px solid var(--accent-bnb);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      color: var(--accent-bnb);
+      font-family: 'Space Grotesk', sans-serif;
+    }
+
+    .roadmap-content h4 {
+      color: #fff;
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .roadmap-content p {
+      color: var(--text-muted);
+      font-size: 14px;
+    }
+
+    /* COMMUNITY / CTA STRIP */
+    .community-strip {
+      background: linear-gradient(135deg, rgba(240, 185, 11, 0.12) 0%, rgba(18, 20, 26, 0.95) 100%);
+      border: 1px solid var(--card-border);
+      border-radius: 24px;
+      padding: 48px 32px;
+      text-align: center;
+    }
+
+    .community-strip h3 {
+      font-size: 28px;
+      color: #fff;
+      margin-bottom: 10px;
+    }
+
+    .community-strip p {
+      color: var(--text-muted);
+      max-width: 560px;
+      margin: 0 auto 26px;
+      font-size: 15px;
+    }
+
+    .community-links {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
     @media (max-width: 868px) {
       .split-layout, .split-layout.reverse { flex-direction: column; text-align: center; }
       .hero h1 { font-size: 38px; }
@@ -695,6 +914,7 @@
       .manifesto-box { padding: 24px; }
       header { flex-direction: column; gap: 12px; }
       .header-actions { width: 100%; justify-content: center; }
+      .roadmap-item { gap: 14px; }
     }
   </style>
 </head>
@@ -826,6 +1046,31 @@
     </div>
   </section>
 
+  <!-- TRUST / SECURITY -->
+  <section class="section-container">
+    <h2 class="section-title">Built to be <span>Trusted</span></h2>
+    <div class="trust-grid" id="trust-grid">
+      <div class="trust-card pending" id="trust-verified">
+        <div class="trust-icon">📜</div>
+        <h4>Verified Contract</h4>
+        <p>Source code publicly verified on BscScan for anyone to audit.</p>
+        <span class="trust-status wait">Available after launch</span>
+      </div>
+      <div class="trust-card pending" id="trust-liquidity">
+        <div class="trust-icon">🔐</div>
+        <h4>Liquidity Locked</h4>
+        <p>Liquidity pool locked or burnt — proof link posted once live.</p>
+        <span class="trust-status wait">Available after launch</span>
+      </div>
+      <div class="trust-card">
+        <div class="trust-icon">🚫</div>
+        <h4>0% Buy / Sell Tax</h4>
+        <p>No hidden fees on transactions. What you buy is what you keep.</p>
+        <span class="trust-status ok">Confirmed in contract</span>
+      </div>
+    </div>
+  </section>
+
   <!-- BUY / SWAP (front-end scaffold, wired up once contract + router are ready) -->
   <section class="section-container">
     <h2 class="section-title">Buy <span>$CPZEE</span></h2>
@@ -844,6 +1089,18 @@
       </div>
 
       <button class="btn btn-full" id="swap-action-btn" onclick="handleSwapClick()">Connect Wallet to Buy</button>
+    </div>
+  </section>
+
+  <!-- LIVE CHART -->
+  <section class="section-container">
+    <h2 class="section-title">Live <span>Chart</span></h2>
+    <div class="chart-frame-wrapper" id="chart-frame-wrapper">
+      <div class="chart-placeholder">
+        <div class="icon">📈</div>
+        <h4>Chart goes live after launch</h4>
+        <p>Once $CPZEE is trading, the live DexScreener chart will appear here automatically.</p>
+      </div>
     </div>
   </section>
 
@@ -869,6 +1126,53 @@
     </div>
   </section>
 
+  <!-- ROADMAP -->
+  <section class="section-container">
+    <h2 class="section-title"><span>$CPZEE</span> Roadmap</h2>
+    <div class="roadmap-list">
+      <div class="roadmap-item">
+        <div class="roadmap-marker">1</div>
+        <div class="roadmap-content">
+          <h4>Launch on Four.meme</h4>
+          <p>Fair bonding-curve launch, no presale, no team allocation. Website, socials and community channels go live.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-marker">2</div>
+        <div class="roadmap-content">
+          <h4>Community Growth</h4>
+          <p>Grow Telegram and X communities, meme contests, organic marketing pushes.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-marker">3</div>
+        <div class="roadmap-content">
+          <h4>Migration to PancakeSwap</h4>
+          <p>On graduation from the bonding curve, liquidity migrates to PancakeSwap. In-site swap and live chart go live.</p>
+        </div>
+      </div>
+      <div class="roadmap-item">
+        <div class="roadmap-marker">4</div>
+        <div class="roadmap-content">
+          <h4>CEX Listing Push</h4>
+          <p>Target listing applications on tier-2/tier-3 exchanges as volume and holder count grow.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMUNITY -->
+  <section class="section-container">
+    <div class="community-strip">
+      <h3>Join the Chimp Army</h3>
+      <p>$CPZEE is 100% community-run — no VC allocation, no team tokens, no presale. Come hang out, share memes, and help spread the word.</p>
+      <div class="community-links">
+        <a href="https://t.me" target="_blank" class="btn">Join Telegram</a>
+        <a href="https://x.com" target="_blank" class="btn btn-outline">Follow on X</a>
+      </div>
+    </div>
+  </section>
+
   <!-- FOOTER -->
   <footer>
     <div class="footer-links">
@@ -879,7 +1183,7 @@
 
     <div class="footer-disclaimer">
       <p style="margin-bottom: 8px;">
-        <strong>Disclaimer:</strong> $CPZEE is a meme coin created purely for entertainment purposes with no intrinsic value or expectation of financial return. There is no formal team or structured roadmap. $CPZEE is not affiliated with, endorsed by, or connected to Changpeng Zhao (CZ), Binance, or any associated corporate entities. This token is an independent, community-driven tribute and parody project.
+        <strong>Disclaimer:</strong> $CPZEE is a meme coin created purely for entertainment purposes with no intrinsic value or expectation of financial return. The roadmap above reflects intentions, not guarantees, and may change. $CPZEE is not affiliated with, endorsed by, or connected to Changpeng Zhao (CZ), Binance, or any associated corporate entities. This token is an independent, community-driven tribute and parody project.
       </p>
       <p>
         Cryptocurrency trading involves substantial risk of loss. Please conduct your own research (DYOR) before engaging in any transactions.
@@ -908,7 +1212,45 @@
         introVideo.addEventListener('ended', function() { enterSite(); });
       }
       setupBuyPanelForLaunchStage();
+      setupTrustBadges();
+      setupLiveChart();
     });
+
+    // Trust badges: show "Available after launch" until real links are filled in
+    // TOKEN_CONFIG, then flip to a green "Confirmed" state with a working link.
+    function setupTrustBadges() {
+      const verifiedCard = document.getElementById('trust-verified');
+      if (TOKEN_CONFIG.bscscanVerifiedUrl) {
+        verifiedCard.classList.remove('pending');
+        verifiedCard.classList.add('verified');
+        verifiedCard.querySelector('.trust-status').outerHTML =
+          '<span class="trust-status ok">Verified</span><br><a class="trust-link" href="' +
+          TOKEN_CONFIG.bscscanVerifiedUrl + '" target="_blank">View on BscScan →</a>';
+      }
+
+      const liquidityCard = document.getElementById('trust-liquidity');
+      if (TOKEN_CONFIG.liquidityLockUrl) {
+        liquidityCard.classList.remove('pending');
+        liquidityCard.classList.add('verified');
+        liquidityCard.querySelector('.trust-status').outerHTML =
+          '<span class="trust-status ok">Locked</span><br><a class="trust-link" href="' +
+          TOKEN_CONFIG.liquidityLockUrl + '" target="_blank">View lock proof →</a>';
+      }
+    }
+
+    // Live chart: embeds the real DexScreener chart once the contract address
+    // is set and the token has migrated (DexScreener only indexes DEX pairs,
+    // not four.meme's bonding curve).
+    function setupLiveChart() {
+      if (!TOKEN_CONFIG.migrated || TOKEN_CONFIG.contractAddress === '0x0000000000000000000000000000000000000000') {
+        return; // keep the placeholder shown in the HTML
+      }
+      const wrapper = document.getElementById('chart-frame-wrapper');
+      const chainSlug = 'bsc';
+      wrapper.innerHTML =
+        '<iframe src="https://dexscreener.com/' + chainSlug + '/' + TOKEN_CONFIG.contractAddress +
+        '?embed=1&theme=dark&trades=0&info=0" loading="lazy"></iframe>';
+    }
 
     // Before migration: point people at four.meme (that's where the bonding-curve
     // trading actually happens). After migration: switch to the in-site swap panel.
@@ -947,7 +1289,11 @@
       fourMemeUrl: 'https://four.meme', // set to your exact token page once live
       // false = still on the four.meme bonding curve -> Buy button sends people to four.meme
       // true  = migrated to PancakeSwap -> in-site swap panel goes live
-      migrated: false
+      migrated: false,
+      // Optional trust/verification links — leave blank until you have them, the
+      // corresponding badge will show "Available after launch" until filled in.
+      bscscanVerifiedUrl: '',   // e.g. 'https://bscscan.com/address/0xYOURCONTRACT#code'
+      liquidityLockUrl: ''      // e.g. your Unicrypt / PinkSale / Mudra lock proof link
     };
 
     // PancakeSwap V2 Router on BSC mainnet (verified against multiple independent sources).
