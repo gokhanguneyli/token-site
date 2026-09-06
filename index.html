@@ -1646,11 +1646,11 @@
       }
     }
 
-    // Live chart: embeds the real DexScreener chart once the contract address
-    // is set and the token has migrated (DexScreener only indexes DEX pairs,
-    // not four.meme's bonding curve).
+    // Live chart: embeds the real DexScreener chart once TOKEN_CONFIG.chartLive is
+    // true. This is independent of `migrated` — four.meme bonding-curve pairs can
+    // already show up on DexScreener (tagged ":4meme") before migrating to PancakeSwap.
     function setupLiveChart() {
-      if (!TOKEN_CONFIG.migrated || TOKEN_CONFIG.contractAddress === '0x0000000000000000000000000000000000000000') {
+      if (!TOKEN_CONFIG.chartLive || TOKEN_CONFIG.contractAddress === '0x0000000000000000000000000000000000000000') {
         return; // keep the placeholder shown in the HTML
       }
       const wrapper = document.getElementById('chart-frame-wrapper');
@@ -1698,6 +1698,7 @@
       // false = still on the four.meme bonding curve -> Buy button sends people to four.meme
       // true  = migrated to PancakeSwap -> in-site swap panel goes live
       migrated: false,
+      chartLive: true, // DexScreener already indexed the four.meme pair
       // Optional trust/verification links — leave blank until you have them, the
       // corresponding badge will show "Available after launch" until filled in.
       bscscanVerifiedUrl: '',   // e.g. 'https://bscscan.com/address/0xYOURCONTRACT#code'
