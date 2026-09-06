@@ -1344,11 +1344,12 @@
         <p>Source code publicly verified on BscScan for anyone to audit.</p>
         <span class="trust-status wait">Available after launch</span>
       </div>
-      <div class="trust-card pending" id="trust-liquidity">
+      <div class="trust-card verified" id="trust-liquidity">
         <div class="trust-icon">🔐</div>
-        <h4>Liquidity Locked</h4>
-        <p>Liquidity pool locked or burnt — proof link posted once live.</p>
-        <span class="trust-status wait">Available after launch</span>
+        <h4>No Rug Risk (Bonding Curve)</h4>
+        <p>Currently trading on four.meme's bonding curve — funds sit in the protocol's own contract, not a removable LP. There's nothing for a team to pull.</p>
+        <span class="trust-status ok">Active</span>
+        <br><span style="font-size:11px; color:#848e9c; margin-top:6px; display:inline-block;">Lock/burn proof for the PancakeSwap pool will be posted here after migration.</span>
       </div>
       <div class="trust-card">
         <div class="trust-icon">🚫</div>
@@ -1636,13 +1637,15 @@
           TOKEN_CONFIG.bscscanVerifiedUrl + '" target="_blank">View on BscScan →</a>';
       }
 
+      // The liquidity card defaults to explaining the bonding-curve model (see HTML).
+      // Once you migrate to PancakeSwap and have a lock/burn proof link, fill in
+      // TOKEN_CONFIG.liquidityLockUrl and this swaps the card to a direct proof link.
       const liquidityCard = document.getElementById('trust-liquidity');
       if (TOKEN_CONFIG.liquidityLockUrl) {
-        liquidityCard.classList.remove('pending');
-        liquidityCard.classList.add('verified');
-        liquidityCard.querySelector('.trust-status').outerHTML =
-          '<span class="trust-status ok">Locked</span><br><a class="trust-link" href="' +
-          TOKEN_CONFIG.liquidityLockUrl + '" target="_blank">View lock proof →</a>';
+        liquidityCard.querySelector('h4').textContent = 'Liquidity Locked';
+        liquidityCard.querySelector('p').textContent = 'Liquidity pool on PancakeSwap is locked or burnt.';
+        liquidityCard.querySelector('span[style]').outerHTML =
+          '<a class="trust-link" href="' + TOKEN_CONFIG.liquidityLockUrl + '" target="_blank">View lock proof →</a>';
       }
     }
 
