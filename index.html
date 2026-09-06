@@ -755,10 +755,19 @@
       padding: 24px;
       text-align: center;
       transition: all 0.3s ease;
+      box-shadow: 0 6px 24px rgba(0,0,0,0.6);
+    }
+
+    .trust-card:hover {
+      transform: translateY(-4px);
     }
 
     .trust-card.verified {
       border-color: #2ECC71;
+    }
+
+    .trust-card.verified:hover {
+      box-shadow: 0 6px 24px rgba(0,0,0,0.6), 0 0 20px rgba(46, 204, 113, 0.15);
     }
 
     .trust-card.pending {
@@ -766,7 +775,7 @@
     }
 
     .trust-icon {
-      font-size: 30px;
+      font-size: 36px;
       margin-bottom: 10px;
     }
 
@@ -1065,6 +1074,11 @@
       border: 1px solid var(--card-border);
       border-radius: 14px;
       overflow: hidden;
+      transition: border-color 0.25s ease;
+    }
+
+    .faq-item:hover {
+      border-color: var(--accent-bnb);
     }
 
     .faq-question {
@@ -1338,11 +1352,11 @@
   <section class="section-container">
     <h2 class="section-title">Built to be <span>Trusted</span></h2>
     <div class="trust-grid" id="trust-grid">
-      <div class="trust-card pending" id="trust-verified">
+      <div class="trust-card verified" id="trust-verified">
         <div class="trust-icon">📜</div>
         <h4>Verified Contract</h4>
         <p>Source code publicly verified on BscScan for anyone to audit.</p>
-        <span class="trust-status wait">Available after launch</span>
+        <span class="trust-status ok">Verified</span><br><a class="trust-link" href="https://bscscan.com/address/0x3482efcaa73095b3acdb4b87eb4c96d1dbeeffff#code" target="_blank">View on BscScan →</a>
       </div>
       <div class="trust-card verified" id="trust-liquidity">
         <div class="trust-icon">🔐</div>
@@ -1625,19 +1639,10 @@
       });
     }
 
-    // Trust badges: show "Available after launch" until real links are filled in
-    // TOKEN_CONFIG, then flip to a green "Confirmed" state with a working link.
+    // Trust badges: the "Verified Contract" and "Tax" cards are already filled in
+    // statically in the HTML above (real BscScan link, real tax %). Only the
+    // liquidity card still needs to flip once a PancakeSwap lock/burn proof exists.
     function setupTrustBadges() {
-      const verifiedCard = document.getElementById('trust-verified');
-      if (TOKEN_CONFIG.bscscanVerifiedUrl) {
-        verifiedCard.classList.remove('pending');
-        verifiedCard.classList.add('verified');
-        verifiedCard.querySelector('.trust-status').outerHTML =
-          '<span class="trust-status ok">Verified</span><br><a class="trust-link" href="' +
-          TOKEN_CONFIG.bscscanVerifiedUrl + '" target="_blank">View on BscScan →</a>';
-      }
-
-      // The liquidity card defaults to explaining the bonding-curve model (see HTML).
       // Once you migrate to PancakeSwap and have a lock/burn proof link, fill in
       // TOKEN_CONFIG.liquidityLockUrl and this swaps the card to a direct proof link.
       const liquidityCard = document.getElementById('trust-liquidity');
