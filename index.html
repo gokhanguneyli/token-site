@@ -949,6 +949,24 @@
       flex-wrap: wrap;
     }
 
+    .telegram-embed-wrapper {
+      margin-top: 32px;
+      max-width: 460px;
+      margin-left: auto;
+      margin-right: auto;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid var(--card-border);
+      background: #0e1621;
+    }
+
+    .telegram-embed-wrapper iframe {
+      width: 100%;
+      height: 420px;
+      border: none;
+      display: block;
+    }
+
     /* INTRO LOADING SPINNER (shown until the video is ready to play) */
     .intro-loader {
       position: absolute;
@@ -1507,8 +1525,11 @@
       <h3>Join the Chimp Army</h3>
       <p>$CPZEE is 100% community-run — no VC allocation, no team tokens, no presale. Come hang out, share memes, and help spread the word.</p>
       <div class="community-links">
-        <a href="https://t.me" target="_blank" class="btn">Join Telegram</a>
+        <a href="https://t.me/CPZEEOfficial" target="_blank" class="btn">Join Telegram</a>
         <a href="https://x.com/ChangpengZee" target="_blank" class="btn btn-outline">Follow on X</a>
+      </div>
+      <div class="telegram-embed-wrapper">
+        <iframe src="https://t.me/s/CPZEEOfficial" loading="lazy" title="CPZEE Telegram Channel"></iframe>
       </div>
     </div>
   </section>
@@ -1523,7 +1544,7 @@
   <footer>
     <div class="footer-links">
       <a href="https://x.com/ChangpengZee" target="_blank">Twitter (X)</a>
-      <a href="https://t.me" target="_blank">Telegram</a>
+      <a href="https://t.me/CPZEEOfficial" target="_blank">Telegram</a>
       <a href="https://four.meme/token/0x3482efcaa73095b3acdb4b87eb4c96d1dbeeffff" target="_blank">Four.meme</a>
     </div>
 
